@@ -208,7 +208,8 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/dopesend.h \
     src/qt/httpsocket.h \
     src/qt/serveur.h \
-    src/qt/chatwindow.h
+    src/qt/chatwindow.h \
+    src/qt/blockbrowser.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -279,7 +280,8 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/dopesend.cpp \
     src/qt/httpsocket.cpp \
     src/qt/serveur.cpp \
-    src/qt/chatwindow.cpp
+    src/qt/chatwindow.cpp \
+    src/qt/blockbrowser.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
@@ -297,7 +299,8 @@ FORMS += \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
     src/qt/forms/optionsdialog.ui \
-    src/qt/forms/chatwindow.ui
+    src/qt/forms/chatwindow.ui \
+    src/qt/forms/blockbrowser.ui
 
 contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h

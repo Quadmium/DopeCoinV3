@@ -8,6 +8,7 @@
 
 class TransactionTableModel;
 class ChatWindow;
+class BlockBrowser;
 class ClientModel;
 class WalletModel;
 class TransactionView;
@@ -71,6 +72,7 @@ private:
     SendCoinsDialog *sendCoinsPage;
     SignVerifyMessageDialog *signVerifyMessageDialog;
     ChatWindow *chatWindow;
+    BlockBrowser *blockPage;
 
     QLabel *labelEncryptionIcon;
     QLabel *labelMintingIcon;
@@ -99,6 +101,7 @@ private:
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
     QAction *chatAction;
+    QAction *blockAction;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
@@ -157,6 +160,8 @@ private slots:
     void gotoSendCoinsPage();
     /** Switch to chat page */
     void gotoChatPage();
+    /** Switch to block explorer page */
+    void gotoBlockPage();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");

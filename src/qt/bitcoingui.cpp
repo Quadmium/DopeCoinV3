@@ -6,6 +6,7 @@
  */
 #include "bitcoingui.h"
 #include "chatwindow.h"
+#include "blockbrowser.h"
 #include "transactiontablemodel.h"
 #include "addressbookpage.h"
 #include "sendcoinsdialog.h"
@@ -115,6 +116,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     toolbar->addAction(addressBookAction);
     toolbar->addAction(lockWalletToggleAction);
     toolbar->addAction(chatAction);
+    toolbar->addAction(blockAction);
     toolbar->addAction(exportAction);
 
 
@@ -138,6 +140,8 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     sendCoinsPage = new SendCoinsDialog(this);
     
     chatWindow = new ChatWindow(this);
+    
+    blockPage = new BlockBrowser(this);
 
     signVerifyMessageDialog = new SignVerifyMessageDialog(this);
     
@@ -148,6 +152,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralWidget->addWidget(receiveCoinsPage);
     centralWidget->addWidget(sendCoinsPage);
     centralWidget->addWidget(chatWindow);
+    centralWidget->addWidget(blockPage);
     setCentralWidget(centralWidget);
 
     // Create status bar
@@ -287,6 +292,12 @@ void BitcoinGUI::createActions()
     chatAction->setCheckable(true);
     chatAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
     tabGroup->addAction(chatAction);
+    
+    blockAction = new QAction(QIcon(":/icons/history"), tr("&Block Explorer"), this);
+    blockAction->setToolTip(tr("Explore the BlockChain"));
+    blockAction->setCheckable(true);
+    blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_7));
+    tabGroup->addAction(blockAction);
 
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
@@ -300,6 +311,8 @@ void BitcoinGUI::createActions()
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
     connect(chatAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(chatAction, SIGNAL(triggered()), this, SLOT(gotoChatPage()));
+    connect(blockAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockPage()));
 
     quitAction = new QAction(QIcon(":/icons/quit"), tr("E&xit"), this);
     quitAction->setToolTip(tr("Quit application"));
@@ -782,6 +795,15 @@ void BitcoinGUI::gotoChatPage()
 {
     chatAction->setChecked(true);
     centralWidget->setCurrentWidget(chatWindow);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+}
+
+void BitcoinGUI::gotoBlockPage()
+{
+    blockAction->setChecked(true);
+    centralWidget->setCurrentWidget(blockPage);
 
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
