@@ -192,7 +192,7 @@ std::string getOutputs(std::string txid)
     CTransaction tx;
     uint256 hashBlock = 0;
     if (!GetTransaction(hash, tx, hashBlock))
-        return "fail";
+        return "N/A";
 
     CDataStream ssTx(SER_NETWORK, PROTOCOL_VERSION);
     ssTx << tx;
@@ -225,7 +225,7 @@ std::string getInputs(std::string txid)
     CTransaction tx;
     uint256 hashBlock = 0;
     if (!GetTransaction(hash, tx, hashBlock))
-        return "fail";
+        return "N/A";
 
     CDataStream ssTx(SER_NETWORK, PROTOCOL_VERSION);
     ssTx << tx;
@@ -239,7 +239,7 @@ std::string getInputs(std::string txid)
         CTransaction wtxPrev;
         uint256 hashBlock = 0;
         if (!GetTransaction(hash, wtxPrev, hashBlock))
-             return "fail";
+             return "N/A";
 
         CDataStream ssTx(SER_NETWORK, PROTOCOL_VERSION);
         ssTx << wtxPrev;
