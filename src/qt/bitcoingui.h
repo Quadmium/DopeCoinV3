@@ -7,6 +7,7 @@
 #include "util.h" // for uint64
 
 class TransactionTableModel;
+class ChatWindow;
 class ClientModel;
 class WalletModel;
 class TransactionView;
@@ -69,6 +70,7 @@ private:
     AddressBookPage *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
     SignVerifyMessageDialog *signVerifyMessageDialog;
+    ChatWindow *chatWindow;
 
     QLabel *labelEncryptionIcon;
     QLabel *labelMintingIcon;
@@ -96,6 +98,7 @@ private:
     QAction *lockWalletToggleAction;
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
+    QAction *chatAction;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
@@ -152,6 +155,8 @@ private slots:
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage();
+    /** Switch to chat page */
+    void gotoChatPage();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
