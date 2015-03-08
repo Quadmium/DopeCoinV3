@@ -293,7 +293,7 @@ void BitcoinGUI::createActions()
     chatAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
     tabGroup->addAction(chatAction);
     
-    blockAction = new QAction(QIcon(":/icons/history"), tr("&Block Explorer"), this);
+    blockAction = new QAction(QIcon(":/icons/blocks"), tr("&Block Explorer"), this);
     blockAction->setToolTip(tr("Explore the BlockChain"));
     blockAction->setCheckable(true);
     blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_7));
