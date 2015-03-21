@@ -43,6 +43,8 @@
         <file alias="qrcode">res/icons/qrcode.png</file>
         <file alias="debugwindow">res/icons/debugwindow.png</file>
         <file alias="minting">res/icons/mining.png</file>
+        <file alias="smessage">res/icons/smessage.png</file>
+        <file alias="back">res/icons/back.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>
