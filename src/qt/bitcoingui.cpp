@@ -118,9 +118,9 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
     toolbar->addAction(lockWalletToggleAction);
+    toolbar->addAction(messageAction);
     toolbar->addAction(chatAction);
     toolbar->addAction(blockAction);
-    toolbar->addAction(messageAction);
     toolbar->addAction(exportAction);
     
     // Create the tray icon (or setup the dock icon)
