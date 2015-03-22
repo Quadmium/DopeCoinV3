@@ -34,7 +34,7 @@ SendMessagesDialog::SendMessagesDialog(Mode mode, Type type, QWidget *parent) :
 #if QT_VERSION >= 0x040700
      /* Do not move this to the XML file, Qt before 4.7 will choke on it */
     if(mode == SendMessagesDialog::Encrypted)
-        ui->addressFrom->setPlaceholderText(tr("Enter a Fluttercoin address (e.g. FShqpDupfZKaw6zkDyqYhZop3P86NRZiet)"));
+        ui->addressFrom->setPlaceholderText(tr("Enter a DopeCoin address (e.g. 4X1GCKWxMGeJVNomE7CYDNjy4CQr3gqqkL)"));
  #endif
     addEntry();
 
