@@ -157,7 +157,7 @@
         <item row="7" column="1">
          <widget class="QLabel" name="pawBox">
           <property name="text">
-           <string>0000 KH/s</string>
+           <string>0 KH/s</string>
           </property>
           <property name="textInteractionFlags">
             <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -383,7 +383,7 @@
         <item row="1" column="1">
          <widget class="QLabel" name="valueBox">
           <property name="text">
-           <string/>
+           <string>N/A</string>
           </property>
           <property name="textInteractionFlags">
             <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -400,7 +400,7 @@
         <item row="4" column="1">
          <widget class="QLabel" name="inputBox">
           <property name="text">
-           <string/>
+           <string>N/A</string>
           </property>
           <property name="textInteractionFlags">
             <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -413,7 +413,7 @@
         <item row="3" column="1">
          <widget class="QLabel" name="outputBox">
           <property name="text">
-           <string/>
+           <string>N/A</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -436,7 +436,7 @@
         <item row="2" column="1">
          <widget class="QLabel" name="feesBox">
           <property name="text">
-           <string/>
+           <string>N/A</string>
           </property>
           <property name="textInteractionFlags">
             <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
