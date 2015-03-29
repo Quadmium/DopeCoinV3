@@ -96,7 +96,17 @@ MessagePage::MessagePage(QWidget *parent) :
     connect(replyAction,           SIGNAL(triggered()), this, SLOT(on_sendButton_clicked()));
     connect(deleteAction,          SIGNAL(triggered()), this, SLOT(on_deleteButton_clicked()));
 
+    //Build second context menu
+    contextMenu2 = new QMenu();
+
+    copyAction = new QAction(tr("&Copy"), this);
+
+    contextMenu2->addAction(copyAction);
+
+    connect(copyAction, SIGNAL(triggered()), this, SLOT(copy_clicked()));
+
     connect(ui->tableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextualMenu(QPoint)));
+    connect(ui->listConversation, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextualMenu2(QPoint)));
 
     // Show Messages
     ui->listConversation->setItemDelegate(msgdelegate);
@@ -385,13 +395,35 @@ void MessagePage::exportClicked()
     }
 }
 
+void MessagePage::copy_clicked()
+{
+    QModelIndexList selection = ui->listConversation->selectionModel()->selectedIndexes();
+
+    if(!selection.isEmpty())
+    {
+        //Copy first item and strip html
+        QTextDocument doc;
+        doc.setHtml(selection.at(0).data(MessageModel::MessageRole).toString());
+        QApplication::clipboard()->setText(doc.toPlainText());
+    }
+}
 
 void MessagePage::contextualMenu(const QPoint &point)
 {
     QModelIndex index = ui->tableView->indexAt(point);
+
     if(index.isValid())
     {
         contextMenu->exec(QCursor::pos());
     }
 }
 
+void MessagePage::contextualMenu2(const QPoint &point)
+{
+    QModelIndex index = ui->listConversation->indexAt(point);
+
+    if(index.isValid())
+    {
+        contextMenu2->exec(QCursor::pos());
+    }
+}

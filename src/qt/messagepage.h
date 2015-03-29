@@ -43,8 +43,10 @@ private:
     MessageModel *model;
     
     QMenu *contextMenu;
+    QMenu *contextMenu2;
     QAction *replyAction;
     QAction *deleteAction;
+    QAction *copyAction;
     QString replyFromAddress;
     QString replyToAddress;
     MessageViewDelegate *msgdelegate;
@@ -54,12 +56,14 @@ private slots:
     void on_newButton_clicked();
     void on_deleteButton_clicked();
     void on_backButton_clicked();
+    void copy_clicked();
     void messageTextChanged();
     void selectionChanged();
     void itemSelectionChanged();
     void incomingMessage();
     /** Spawn contextual menu (right mouse menu) for address book entry */
     void contextualMenu(const QPoint &point);
+    void contextualMenu2(const QPoint &point);
 
 signals:
 };

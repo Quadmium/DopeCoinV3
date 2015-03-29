@@ -486,7 +486,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case LabelRole:         return rec->label;
     case MessageRole:       return rec->message;
     case ShortMessageRole:  return rec->message; // TODO: Short message
-    case HTMLRole:          return rec->received_datetime.toString() + "<br>"  + (rec->label.isEmpty() ? rec->from_address : rec->label)  + "<br>" + rec->message;
+    case HTMLRole:          return "<b>" + rec->received_datetime.toString() + "<br>"  + (rec->label.isEmpty() ? rec->from_address : rec->label)  + "</b><br>" + rec->message;
     case Ambiguous:
         int it;
 
